@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A70BF3A510ABFD6BF31A260E /* Pods_MarvellAlamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 409602AAC668CBF19F8018FB /* Pods_MarvellAlamofire.framework */; };
 		E4000EFC29C5AEBE00CF8D7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4000EFB29C5AEBE00CF8D7B /* AppDelegate.swift */; };
 		E4000EFE29C5AEBE00CF8D7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4000EFD29C5AEBE00CF8D7B /* SceneDelegate.swift */; };
 		E4000F0029C5AEBE00CF8D7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4000EFF29C5AEBE00CF8D7B /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		409602AAC668CBF19F8018FB /* Pods_MarvellAlamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvellAlamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67E3914D3F4941F8B6A31294 /* Pods-MarvellAlamofire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvellAlamofire.debug.xcconfig"; path = "Target Support Files/Pods-MarvellAlamofire/Pods-MarvellAlamofire.debug.xcconfig"; sourceTree = "<group>"; };
+		DC0CDCBCE88F892C560BCC01 /* Pods-MarvellAlamofire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvellAlamofire.release.xcconfig"; path = "Target Support Files/Pods-MarvellAlamofire/Pods-MarvellAlamofire.release.xcconfig"; sourceTree = "<group>"; };
 		E4000EF829C5AEBE00CF8D7B /* MarvellAlamofire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvellAlamofire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4000EFB29C5AEBE00CF8D7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4000EFD29C5AEBE00CF8D7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A70BF3A510ABFD6BF31A260E /* Pods_MarvellAlamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29ED63AB84331D1EC6D1DC64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				409602AAC668CBF19F8018FB /* Pods_MarvellAlamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2BC24EBEAE3801DEC712503E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				67E3914D3F4941F8B6A31294 /* Pods-MarvellAlamofire.debug.xcconfig */,
+				DC0CDCBCE88F892C560BCC01 /* Pods-MarvellAlamofire.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E4000EEF29C5AEBE00CF8D7B = {
 			isa = PBXGroup;
 			children = (
 				E4000EFA29C5AEBE00CF8D7B /* MarvellAlamofire */,
 				E4000EF929C5AEBE00CF8D7B /* Products */,
+				2BC24EBEAE3801DEC712503E /* Pods */,
+				29ED63AB84331D1EC6D1DC64 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4000F0C29C5AEC300CF8D7B /* Build configuration list for PBXNativeTarget "MarvellAlamofire" */;
 			buildPhases = (
+				E5E8F47471963D8E3B368D6A /* [CP] Check Pods Manifest.lock */,
 				E4000EF429C5AEBE00CF8D7B /* Sources */,
 				E4000EF529C5AEBE00CF8D7B /* Frameworks */,
 				E4000EF629C5AEBE00CF8D7B /* Resources */,
+				100A8A5D1CCE84E7E7F153BE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		100A8A5D1CCE84E7E7F153BE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MarvellAlamofire/Pods-MarvellAlamofire-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MarvellAlamofire/Pods-MarvellAlamofire-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MarvellAlamofire/Pods-MarvellAlamofire-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5E8F47471963D8E3B368D6A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MarvellAlamofire-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E4000EF429C5AEBE00CF8D7B /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		E4000F0D29C5AEC300CF8D7B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67E3914D3F4941F8B6A31294 /* Pods-MarvellAlamofire.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -309,6 +379,7 @@
 		};
 		E4000F0E29C5AEC300CF8D7B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC0CDCBCE88F892C560BCC01 /* Pods-MarvellAlamofire.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
