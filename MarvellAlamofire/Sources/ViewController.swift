@@ -8,12 +8,22 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var netWorkingService = NetworkService()
+    var marvellAnswer = [MarvellAnswer]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .red
+        netWorkingService.getData(url: netWorkingService.addURL()) { result in
+            switch result {
+
+            case .success(let data):
+                self.marvellAnswer.append(data)
+                print(self.marvellAnswer.first?.data?.results.first?.name)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
-
-
 }
 
