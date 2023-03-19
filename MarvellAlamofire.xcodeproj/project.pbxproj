@@ -13,6 +13,9 @@
 		E4000F0029C5AEBE00CF8D7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4000EFF29C5AEBE00CF8D7B /* ViewController.swift */; };
 		E4000F0529C5AEC300CF8D7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4000F0429C5AEC300CF8D7B /* Assets.xcassets */; };
 		E4000F0829C5AEC300CF8D7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4000F0629C5AEC300CF8D7B /* LaunchScreen.storyboard */; };
+		E4C1E00D29C721AD009C7CC9 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1E00C29C721AD009C7CC9 /* NetworkService.swift */; };
+		E4C1E00F29C72CC2009C7CC9 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1E00E29C72CC2009C7CC9 /* NetworkError.swift */; };
+		E4C1E01129C72E53009C7CC9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1E01029C72E53009C7CC9 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		E4000F0429C5AEC300CF8D7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4000F0729C5AEC300CF8D7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4000F0929C5AEC300CF8D7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4C1E00C29C721AD009C7CC9 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E4C1E00E29C72CC2009C7CC9 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		E4C1E01029C72E53009C7CC9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,8 @@
 		E4C1E00729C5C56E009C7CC9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				E4C1E00B29C72158009C7CC9 /* Model */,
+				E4C1E00A29C72146009C7CC9 /* NetworkService */,
 				E4C1E00929C5C649009C7CC9 /* App */,
 				E4000EFF29C5AEBE00CF8D7B /* ViewController.swift */,
 			);
@@ -110,6 +118,23 @@
 				E4000EFD29C5AEBE00CF8D7B /* SceneDelegate.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		E4C1E00A29C72146009C7CC9 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				E4C1E00C29C721AD009C7CC9 /* NetworkService.swift */,
+				E4C1E00E29C72CC2009C7CC9 /* NetworkError.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		E4C1E00B29C72158009C7CC9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E4C1E01029C72E53009C7CC9 /* Model.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,7 +253,10 @@
 			files = (
 				E4000F0029C5AEBE00CF8D7B /* ViewController.swift in Sources */,
 				E4000EFC29C5AEBE00CF8D7B /* AppDelegate.swift in Sources */,
+				E4C1E00D29C721AD009C7CC9 /* NetworkService.swift in Sources */,
+				E4C1E01129C72E53009C7CC9 /* Model.swift in Sources */,
 				E4000EFE29C5AEBE00CF8D7B /* SceneDelegate.swift in Sources */,
+				E4C1E00F29C72CC2009C7CC9 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,7 +400,6 @@
 				INFOPLIST_FILE = MarvellAlamofire/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -400,7 +427,6 @@
 				INFOPLIST_FILE = MarvellAlamofire/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
