@@ -11,7 +11,6 @@
 		E4000EFC29C5AEBE00CF8D7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4000EFB29C5AEBE00CF8D7B /* AppDelegate.swift */; };
 		E4000EFE29C5AEBE00CF8D7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4000EFD29C5AEBE00CF8D7B /* SceneDelegate.swift */; };
 		E4000F0029C5AEBE00CF8D7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4000EFF29C5AEBE00CF8D7B /* ViewController.swift */; };
-		E4000F0329C5AEBE00CF8D7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4000F0129C5AEBE00CF8D7B /* Main.storyboard */; };
 		E4000F0529C5AEC300CF8D7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4000F0429C5AEC300CF8D7B /* Assets.xcassets */; };
 		E4000F0829C5AEC300CF8D7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4000F0629C5AEC300CF8D7B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -24,7 +23,6 @@
 		E4000EFB29C5AEBE00CF8D7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4000EFD29C5AEBE00CF8D7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E4000EFF29C5AEBE00CF8D7B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E4000F0229C5AEBE00CF8D7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E4000F0429C5AEC300CF8D7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4000F0729C5AEC300CF8D7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4000F0929C5AEC300CF8D7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,7 +54,6 @@
 				67E3914D3F4941F8B6A31294 /* Pods-MarvellAlamofire.debug.xcconfig */,
 				DC0CDCBCE88F892C560BCC01 /* Pods-MarvellAlamofire.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,15 +78,38 @@
 		E4000EFA29C5AEBE00CF8D7B /* MarvellAlamofire */ = {
 			isa = PBXGroup;
 			children = (
-				E4000EFB29C5AEBE00CF8D7B /* AppDelegate.swift */,
-				E4000EFD29C5AEBE00CF8D7B /* SceneDelegate.swift */,
+				E4C1E00829C5C585009C7CC9 /* Resources */,
+				E4C1E00729C5C56E009C7CC9 /* Sources */,
+			);
+			path = MarvellAlamofire;
+			sourceTree = "<group>";
+		};
+		E4C1E00729C5C56E009C7CC9 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				E4C1E00929C5C649009C7CC9 /* App */,
 				E4000EFF29C5AEBE00CF8D7B /* ViewController.swift */,
-				E4000F0129C5AEBE00CF8D7B /* Main.storyboard */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		E4C1E00829C5C585009C7CC9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				E4000F0429C5AEC300CF8D7B /* Assets.xcassets */,
 				E4000F0629C5AEC300CF8D7B /* LaunchScreen.storyboard */,
 				E4000F0929C5AEC300CF8D7B /* Info.plist */,
 			);
-			path = MarvellAlamofire;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E4C1E00929C5C649009C7CC9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E4000EFB29C5AEBE00CF8D7B /* AppDelegate.swift */,
+				E4000EFD29C5AEBE00CF8D7B /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,7 +174,6 @@
 			files = (
 				E4000F0829C5AEC300CF8D7B /* LaunchScreen.storyboard in Resources */,
 				E4000F0529C5AEC300CF8D7B /* Assets.xcassets in Resources */,
-				E4000F0329C5AEBE00CF8D7B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,14 +235,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E4000F0129C5AEBE00CF8D7B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E4000F0229C5AEBE00CF8D7B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E4000F0629C5AEC300CF8D7B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -358,7 +369,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MarvellAlamofire/Info.plist;
+				INFOPLIST_FILE = MarvellAlamofire/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -386,7 +397,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MarvellAlamofire/Info.plist;
+				INFOPLIST_FILE = MarvellAlamofire/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
