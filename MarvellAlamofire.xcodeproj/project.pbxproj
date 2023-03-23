@@ -16,6 +16,8 @@
 		E4C1E00D29C721AD009C7CC9 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1E00C29C721AD009C7CC9 /* NetworkService.swift */; };
 		E4C1E00F29C72CC2009C7CC9 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1E00E29C72CC2009C7CC9 /* NetworkError.swift */; };
 		E4C1E01129C72E53009C7CC9 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1E01029C72E53009C7CC9 /* Model.swift */; };
+		E4C1E01329C87112009C7CC9 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1E01229C87112009C7CC9 /* CustomCell.swift */; };
+		E4C1E01829C991A8009C7CC9 /* Constraint ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C1E01729C991A8009C7CC9 /* Constraint ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		E4C1E00C29C721AD009C7CC9 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		E4C1E00E29C72CC2009C7CC9 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		E4C1E01029C72E53009C7CC9 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		E4C1E01229C87112009C7CC9 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		E4C1E01729C991A8009C7CC9 /* Constraint ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constraint ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,10 +97,12 @@
 		E4C1E00729C5C56E009C7CC9 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				E4C1E01629C99138009C7CC9 /* Extensions */,
 				E4C1E00B29C72158009C7CC9 /* Model */,
 				E4C1E00A29C72146009C7CC9 /* NetworkService */,
 				E4C1E00929C5C649009C7CC9 /* App */,
 				E4000EFF29C5AEBE00CF8D7B /* ViewController.swift */,
+				E4C1E01229C87112009C7CC9 /* CustomCell.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -135,6 +141,14 @@
 				E4C1E01029C72E53009C7CC9 /* Model.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E4C1E01629C99138009C7CC9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E4C1E01729C991A8009C7CC9 /* Constraint ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,7 +269,9 @@
 				E4000EFC29C5AEBE00CF8D7B /* AppDelegate.swift in Sources */,
 				E4C1E00D29C721AD009C7CC9 /* NetworkService.swift in Sources */,
 				E4C1E01129C72E53009C7CC9 /* Model.swift in Sources */,
+				E4C1E01829C991A8009C7CC9 /* Constraint ext.swift in Sources */,
 				E4000EFE29C5AEBE00CF8D7B /* SceneDelegate.swift in Sources */,
+				E4C1E01329C87112009C7CC9 /* CustomCell.swift in Sources */,
 				E4C1E00F29C72CC2009C7CC9 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
