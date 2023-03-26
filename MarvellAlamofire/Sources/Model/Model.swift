@@ -24,7 +24,7 @@ struct Character: Codable {
 
 struct Comics: Codable {
     let available: Int
-    let items: [ComicsItem]
+    let items: [ComicsItem]?
 }
 
 struct ComicsItem: Codable {

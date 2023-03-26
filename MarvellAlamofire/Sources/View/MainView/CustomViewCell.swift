@@ -13,7 +13,7 @@ class CustomCell: UICollectionViewCell {
 
     // MARK: - Outlets
 
-    let avatarImageView: UIImageView = {
+    private lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -22,7 +22,7 @@ class CustomCell: UICollectionViewCell {
         return imageView
     }()
 
-    let nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 16, weight: .bold)
@@ -30,7 +30,14 @@ class CustomCell: UICollectionViewCell {
         return label
     }()
 
-    lazy var activityIndicator: UIActivityIndicatorView = {
+    private lazy var backgroundTitleView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.alpha = 0.6
+        return view
+    }()
+
+    private lazy var activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.color = .gray
         indicator.startAnimating()
@@ -52,6 +59,7 @@ class CustomCell: UICollectionViewCell {
     private func setupHierarchy() {
         contentView.addSubviewsForAutoLayout([
             avatarImageView,
+            backgroundTitleView,
             nameLabel,
             activityIndicator])
     }
@@ -63,8 +71,13 @@ class CustomCell: UICollectionViewCell {
             avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             avatarImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
 
-            nameLabel.centerXAnchor.constraint(equalTo: avatarImageView.centerXAnchor),
-            nameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: -24),
+            backgroundTitleView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            backgroundTitleView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundTitleView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundTitleView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.15),
+
+            nameLabel.centerXAnchor.constraint(equalTo: backgroundTitleView.centerXAnchor),
+            nameLabel.centerYAnchor.constraint(equalTo: backgroundTitleView.centerYAnchor),
             nameLabel.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: 8),
             nameLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -8),
 

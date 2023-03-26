@@ -66,7 +66,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+        setupView()
         setupHierarchy()
         setupLayout()
 
@@ -82,12 +82,18 @@ class ViewController: UIViewController {
             }
         }
     }
+
     // MARK: - Setups
 
     private func setupHierarchy() {
         view.addSubviewsForAutoLayout([
             collectionView
         ])
+    }
+
+    private func setupView() {
+        view.backgroundColor = .red
+        view.alpha = 0.7
     }
 
     private func setupLayout() {
@@ -97,6 +103,12 @@ class ViewController: UIViewController {
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+    }
+
+    // MARK: - ReloadData
+
+    func reloadData() {
+        collectionView.reloadData()
     }
 }
 
@@ -117,7 +129,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        guard let character = model?.data?.results[indexPath.row] else { return }
+        collectionView.deselectItem(at: indexPath, animated: true)
     }
 }
 
