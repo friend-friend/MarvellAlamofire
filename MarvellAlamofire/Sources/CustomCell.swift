@@ -16,6 +16,8 @@ class CustomCell: UICollectionViewCell {
     let avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 25
         return imageView
     }()
@@ -24,7 +26,7 @@ class CustomCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 16, weight: .bold)
-        label.textColor = .white
+        label.textColor = .black
         return label
     }()
 
@@ -56,21 +58,43 @@ class CustomCell: UICollectionViewCell {
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            avatarImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
             avatarImageView.topAnchor.constraint(equalTo: topAnchor),
             avatarImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            avatarImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
 
             nameLabel.centerXAnchor.constraint(equalTo: avatarImageView.centerXAnchor),
-            nameLabel.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor, constant: 8),
-            nameLabel.trailingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: -8),
+            nameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: -24),
+            nameLabel.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: 8),
+            nameLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -8),
 
             activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
+
+
+    // MARK: - Configuration
+
+    func configurate(by model: Character?) {
+        guard let model = model else { return }
+
+        nameLabel.text = model.name
+        DispatchQueue.global().async {
+            guard let imagePath = model.thumbnail?.path,
+                  let imageFormat = model.thumbnail?.format,
+                  let imageUrl = URL(string: "\(imagePath).\(imageFormat)"),
+                  let imageData = try? Data(contentsOf: imageUrl)
+            else { return }
+
+            let image = UIImage(data: imageData)
+
+            DispatchQueue.main.async {
+                self.avatarImageView.image = image
+                self.activityIndicator.stopAnimating()
+            }
+        }
+    }
 }
 
-// MARK: - Configuration
 

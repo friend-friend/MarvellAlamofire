@@ -17,9 +17,9 @@ struct Characters: Codable {
 
 struct Character: Codable {
     let id: Int?
-        let name, description: String?
-        let thumbnail: Image?
-        let comics: Comics?
+    let name, description: String?
+    let thumbnail: Image?
+    let comics: Comics?
 }
 
 struct Comics: Codable {
