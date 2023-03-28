@@ -23,11 +23,20 @@ class ViewController: UIViewController {
 
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        collectionView.backgroundColor = .red
+        collectionView.alpha = 5
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.reusID)
         return collectionView
     }()
+
+//    lazy var searchController: UISearchController = {
+//        let searchController = UISearchController(searchResultsController: nil)
+//        searchController.obscuresBackgroundDuringPresentation = false
+//        searchController.searchBar.placeholder = "Search"
+//        return searchController
+//    }()
 
     func createLayout() -> UICollectionViewCompositionalLayout {
         let itemSize = NSCollectionLayoutSize(
@@ -60,7 +69,15 @@ class ViewController: UIViewController {
         return UICollectionViewCompositionalLayout(section: section)
     }
 
+//    private func configureSearchController() {
+//        searchController.searchResultsUpdater = self
+//        searchController.delegate = self
+//    }
 
+//    func updateSearchResults(for searchController: UISearchController) {
+//        guard let text = searchController.searchBar.text else { return }
+//
+//    }
 
     // MARK: - Life cycle
 
@@ -75,7 +92,6 @@ class ViewController: UIViewController {
             case .success(let data):
                 self.model = data
                 self.collectionView.reloadData()
-                print(self.model ?? "")
 
             case .failure(let error):
                 print(error)
@@ -92,8 +108,7 @@ class ViewController: UIViewController {
     }
 
     private func setupView() {
-        view.backgroundColor = .red
-        view.alpha = 0.7
+        view.backgroundColor = .black
     }
 
     private func setupLayout() {
@@ -109,6 +124,12 @@ class ViewController: UIViewController {
 
     func reloadData() {
         collectionView.reloadData()
+    }
+
+    func createDescriptionView(model: Character?) -> UIViewController {
+        let view = DescriptionViewController()
+        view.model = model
+        return view
     }
 }
 
@@ -130,7 +151,9 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let character = model?.data?.results[indexPath.row] else { return }
+        let detailView = createDescriptionView(model: character)
         collectionView.deselectItem(at: indexPath, animated: true)
+        present(detailView, animated: true)
     }
 }
 

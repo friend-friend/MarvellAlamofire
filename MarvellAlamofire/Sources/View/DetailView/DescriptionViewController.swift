@@ -26,7 +26,7 @@ class DescriptionViewController: UIViewController {
 
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .white
+        label.textColor = .red
         label.textAlignment = .left
         label.font = .systemFont(ofSize: 20, weight: .bold)
         return label
@@ -35,17 +35,18 @@ class DescriptionViewController: UIViewController {
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.textColor = .systemRed
-        label.font = .systemFont(ofSize: 20)
+        label.textColor = .red
+        label.font = .systemFont(ofSize: 20, weight: .bold)
         label.numberOfLines = 0
         label.sizeToFit()
         return label
     }()
 
     private lazy var tableView: UITableView = {
-        let table = UITableView()
-        table.backgroundColor = .white
+        let table = UITableView(frame: .zero, style: .insetGrouped)
+        table.backgroundColor = .black
         table.layer.cornerRadius = 25
+        table.dataSource = self
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         return table
     }()
@@ -62,8 +63,10 @@ class DescriptionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .black
         setupHierarchy()
         setupLayout()
+        configurate(by: model)
     }
 
     // MARK: - Setups
@@ -127,9 +130,11 @@ class DescriptionViewController: UIViewController {
                 if imagePath.contains("image_not_available") {
                     self.avatarImageView.image = UIImage(named: "notPhoto")
                     self.activityIndicator.stopAnimating()
+                    self.tableView.reloadData()
                 } else {
                     self.avatarImageView.image = image
                     self.activityIndicator.stopAnimating()
+                    self.tableView.reloadData()
                 }
             }
         }
@@ -146,7 +151,6 @@ extension DescriptionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = model?.comics?.items?[indexPath.row].name
-        cell.backgroundColor = .black
         return cell
     }
 

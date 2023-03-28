@@ -103,10 +103,20 @@ class CustomCell: UICollectionViewCell {
             let image = UIImage(data: imageData)
 
             DispatchQueue.main.async {
-                self.avatarImageView.image = image
-                self.activityIndicator.stopAnimating()
+                if imagePath.contains("image_not_available") {
+                    self.avatarImageView.image = UIImage(named: "notPhoto")
+                    self.activityIndicator.stopAnimating()
+                } else {
+                    self.avatarImageView.image = image
+                    self.activityIndicator.stopAnimating()
+                }
             }
         }
+    }
+
+    override func prepareForReuse() {
+        self.avatarImageView.image = nil
+        self.activityIndicator.startAnimating()
     }
 }
 
