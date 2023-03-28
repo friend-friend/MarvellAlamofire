@@ -7,57 +7,49 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    let networkService = NetworkService()
-    var model: MarvellAnswer?
-
+class ViewController: UIViewController, MainViewControllerProtocol {
+    
+    var presenter: PresenterProtocol?
+    
     // MARK: - Outlets
-
-    //    private lazy var topImage: UIImageView = {
-    //        let image = UIImageView()
-    //        image.image = UIImage(named: "marvell")
-    //        image.contentMode = .scaleAspectFill
-    //        return image
-    //    }()
-
+    
+    //        private lazy var topImage: UIImageView = {
+    //            let image = UIImageView()
+    //            image.image = UIImage(named: "marvell")
+    //            image.contentMode = .scaleAspectFill
+    //            return image
+    //        }()
+    
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-        collectionView.backgroundColor = .red
+        collectionView.backgroundColor = .gray
         collectionView.alpha = 5
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: CustomCell.reusID)
         return collectionView
     }()
-
-//    lazy var searchController: UISearchController = {
-//        let searchController = UISearchController(searchResultsController: nil)
-//        searchController.obscuresBackgroundDuringPresentation = false
-//        searchController.searchBar.placeholder = "Search"
-//        return searchController
-//    }()
-
+    
     func createLayout() -> UICollectionViewCompositionalLayout {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(0.5),
             heightDimension: .absolute(200))
-
+        
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
             leading: 8,
             bottom: 0,
             trailing: 8)
-
+        
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .estimated(200))
-
+        
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize, subitem: item, count: 2)
         group.interItemSpacing = .fixed(8)
-
+        
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 16
         section.contentInsets = NSDirectionalEdgeInsets(
@@ -65,52 +57,33 @@ class ViewController: UIViewController {
             leading: 0,
             bottom: 16,
             trailing: 0)
-
+        
         return UICollectionViewCompositionalLayout(section: section)
     }
-
-//    private func configureSearchController() {
-//        searchController.searchResultsUpdater = self
-//        searchController.delegate = self
-//    }
-
-//    func updateSearchResults(for searchController: UISearchController) {
-//        guard let text = searchController.searchBar.text else { return }
-//
-//    }
-
+    
     // MARK: - Life cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
         setupHierarchy()
         setupLayout()
-
-        networkService.getData(url: networkService.addURL()) { result in
-            switch result {
-            case .success(let data):
-                self.model = data
-                self.collectionView.reloadData()
-
-            case .failure(let error):
-                print(error)
-            }
-        }
+        configurateNavigation()
     }
-
+    
     // MARK: - Setups
-
+    
     private func setupHierarchy() {
         view.addSubviewsForAutoLayout([
             collectionView
+            //            topImage
         ])
     }
-
+    
     private func setupView() {
-        view.backgroundColor = .black
+        view.backgroundColor = .white
     }
-
+    
     private func setupLayout() {
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
@@ -119,39 +92,51 @@ class ViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
-
+    
+    private func configurateNavigation() {
+        let standardAppearance = UINavigationBarAppearance()
+        standardAppearance.configureWithOpaqueBackground()
+        standardAppearance.backgroundImage = UIImage(named: "Marvel")
+        navigationController?.navigationBar.standardAppearance = standardAppearance
+        
+        let compactAppearance = standardAppearance.copy()
+        compactAppearance.backgroundImage = UIImage(named: "Marvel")
+        navigationController?.navigationBar.scrollEdgeAppearance = standardAppearance
+        navigationController?.navigationBar.compactAppearance = compactAppearance
+    }
+    
     // MARK: - ReloadData
-
+    
     func reloadData() {
         collectionView.reloadData()
     }
-
-    func createDescriptionView(model: Character?) -> UIViewController {
-        let view = DescriptionViewController()
-        view.model = model
-        return view
-    }
+    //
+    //    func createDescriptionView(model: Character?) -> UIViewController {
+    //        let view = DescriptionViewController()
+    //        view.model = model
+    //        return view
+    //    }
 }
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-         model?.data?.results.count ?? 0
+        presenter?.model?.data?.results.count ?? 0
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCell.reusID, for: indexPath) as? CustomCell
         else {
             return UICollectionViewCell()
         }
-        let character = model?.data?.results[indexPath.row]
+        let character = presenter?.model?.data?.results[indexPath.row]
         cell.configurate(by: character)
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let character = model?.data?.results[indexPath.row] else { return }
-        let detailView = createDescriptionView(model: character)
+        guard let character = presenter?.model?.data?.results[indexPath.row] else { return }
+        let detailView = Builder.createDescriptionView(character: character)
         collectionView.deselectItem(at: indexPath, animated: true)
         present(detailView, animated: true)
     }

@@ -34,7 +34,7 @@ struct ComicsItem: Codable {
 struct Image: Codable {
     let path: String?
     let format: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case path
         case format = "extension"
