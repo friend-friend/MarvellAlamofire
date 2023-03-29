@@ -18,7 +18,7 @@ class CustomCell: UICollectionViewCell, CustomCellProtocol {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.layer.masksToBounds = true
-        imageView.layer.cornerRadius = 25
+        imageView.layer.cornerRadius = 12
         return imageView
     }()
     
@@ -33,6 +33,7 @@ class CustomCell: UICollectionViewCell, CustomCellProtocol {
     private lazy var backgroundTitleView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
+        view.layer.cornerRadius = 12
         view.alpha = 0.6
         return view
     }()
