@@ -13,13 +13,6 @@ class ViewController: UIViewController, MainViewControllerProtocol {
     
     // MARK: - Outlets
     
-    //        private lazy var topImage: UIImageView = {
-    //            let image = UIImageView()
-    //            image.image = UIImage(named: "marvell")
-    //            image.contentMode = .scaleAspectFill
-    //            return image
-    //        }()
-    
     private lazy var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         collectionView.backgroundColor = .gray
@@ -76,7 +69,6 @@ class ViewController: UIViewController, MainViewControllerProtocol {
     private func setupHierarchy() {
         view.addSubviewsForAutoLayout([
             collectionView
-            //            topImage
         ])
     }
     
@@ -110,12 +102,6 @@ class ViewController: UIViewController, MainViewControllerProtocol {
     func reloadData() {
         collectionView.reloadData()
     }
-    //
-    //    func createDescriptionView(model: Character?) -> UIViewController {
-    //        let view = DescriptionViewController()
-    //        view.model = model
-    //        return view
-    //    }
 }
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {

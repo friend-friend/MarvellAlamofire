@@ -8,6 +8,6 @@
 import Foundation
 
 enum NetworkError: String, Error {
-    case invalidURL = "INVALID URL ПИЗДА"
-    case errorDecod = "The data has not been decrypted ХУЙ"
+    case invalidURL = "INVALID URL"
+    case errorDecod = "The data has not been decrypted"
 }
